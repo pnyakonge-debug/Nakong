@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Welcome</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <h1 class="logo">Paul Magaigwa Nyakonge</h1>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#" onclick="openUserLoginModal()">User Login</a></li>
+                    <li><a href="#" onclick="openAdminLoginModal()">Admin</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="container">
+                <img src="https://via.placeholder.com/300" alt="Profile picture of Paul Magaigwa Nyakonge" class="profile-image">
+                <h2>Welcome to My Portfolio</h2>
+                <p>I'm a creative developer passionate about building beautiful web experiences.</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </section>
+
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About Me</h2>
+                <p>I'm a biomedical engineer with a passion for innovation and improving healthcare through technology. My career is dedicated to bridging the gap between engineering and medicine, developing solutions that enhance patient care and medical outcomes.</p>
+                <p>With expertise in medical device design, biomechanics, and healthcare technology, I focus on creating innovative systems that solve real-world clinical challenges. I'm committed to staying at the forefront of biomedical engineering, collaborating with medical professionals, and leveraging cutting-edge technologies to make a meaningful impact on people's lives. Whether it's designing devices, optimizing processes, or developing new applications, I'm driven by the mission to advance healthcare through engineering excellence.</p>
+            </div>
+        </section>
+
+        <section id="projects" class="projects">
+            <div class="container">
+                <h2>My Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card">
+                        <h3>Automated Resuscitation with Artificial Manual Breathing Unit</h3>
+                        <p>An innovative biomedical device designed to provide automated chest compressions and artificial manual breathing support for emergency resuscitation. This project combines mechanical engineering with biomedical principles to improve survival rates in cardiac emergencies.</p>
+                        <a href="mailto:paulmagaigwa7@gmail.com?subject=Automated Resuscitation Project" class="project-link">Learn More →</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project 2</h3>
+                        <p>Description of your project goes here.</p>
+                        <a href="#" class="project-link">Learn More →</a>
+                    </div>
+                    <div class="project-card">
+                        <h3>Project 3</h3>
+                        <p>Description of your project goes here.</p>
+                        <a href="#" class="project-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <h3>Medical Device Design</h3>
+                        <p>Expert design and development of innovative medical devices that meet regulatory standards and address clinical needs.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Biomechanics & Analysis</h3>
+                        <p>Comprehensive biomechanical analysis and simulation to optimize device performance and patient safety.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Healthcare Technology Solutions</h3>
+                        <p>Development of cutting-edge healthcare technology solutions that improve patient outcomes and operational efficiency.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Product Development & Optimization</h3>
+                        <p>Full-cycle product development from concept to commercialization, including testing, validation, and optimization.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Clinical Consultation</h3>
+                        <p>Expert consultation for medical professionals and organizations seeking to bridge engineering and clinical expertise.</p>
+                    </div>
+                    <div class="service-card">
+                        <h3>Research & Innovation</h3>
+                        <p>Conducting advanced research and developing innovative solutions to emerging healthcare challenges.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Get In Touch</h2>
+                <p>Feel free to reach out to me for any inquiries.</p>
+                <a href="mailto:paulmagaigwa7@gmail.com" class="btn">Send Me an Email</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- User Login Modal -->
+    <div id="userLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeUserLoginModal()">&times;</span>
+            <div id="userLoginForm" class="login-container">
+                <h2>User Login</h2>
+                <form class="login-form" id="loginForm">
+                    <div class="form-group">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn">Login</button>
+                </form>
+            </div>
+
+            <div id="userPanel" class="user-panel" style="display: none;">
+                <div class="panel-header">
+                    <h2>Welcome, <span id="userEmailDisplay"></span></h2>
+                    <button class="btn btn-logout" onclick="logoutUser()">Logout</button>
+                </div>
+                <div class="panel-tabs">
+                    <button class="tab-btn active" onclick="showUserTab('submit')">Submit Request</button>
+                    <button class="tab-btn" onclick="showUserTab('view')">My Requests</button>
+                </div>
+                <div class="panel-content">
+                    <div id="submitTab" class="tab-content" style="display: block;">
+                        <h3>Submit Equipment Maintenance Request</h3>
+                        <p>Please fill out the form below to request maintenance for your equipment</p>
+                        <form class="maintenance-form" id="userMaintenanceForm">
+                            <div class="form-group">
+                                <label for="userEquipment">Equipment Name:</label>
+                                <input type="text" id="userEquipment" name="equipment" required placeholder="Enter equipment name">
+                            </div>
+                            <div class="form-group">
+                                <label for="userMaintenanceType">Maintenance Type:</label>
+                                <select id="userMaintenanceType" name="maintenanceType" required>
+                                    <option value="">Select maintenance type</option>
+                                    <option value="corrective">Corrective Maintenance (Repair)</option>
+                                    <option value="preventive">Preventive Maintenance (Scheduled)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="userDescription">Description of Issue/Service Needed:</label>
+                                <textarea id="userDescription" name="description" rows="5" required placeholder="Describe the issue or maintenance needed"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="userUrgency">Urgency Level:</label>
+                                <select id="userUrgency" name="urgency" required>
+                                    <option value="">Select urgency</option>
+                                    <option value="low">Low (Non-urgent)</option>
+                                    <option value="medium">Medium (Standard)</option>
+                                    <option value="high">High (Urgent)</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn">Submit Request</button>
+                        </form>
+                    </div>
+                    <div id="viewTab" class="tab-content" style="display: none;">
+                        <h3>Your Maintenance Requests</h3>
+                        <div id="userRequestsContainer" class="requests-container">
+                            <p style="text-align: center; color: #999;">No requests submitted yet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminLoginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeAdminLoginModal()">&times;</span>
+            <div id="adminLoginForm" class="admin-login">
+                <h3>Admin Login</h3>
+                <form class="login-form" id="adminLoginFormElement">
+                    <div class="form-group">
+                        <label for="adminUsername">Username:</label>
+                        <input type="text" id="adminUsername" placeholder="Enter admin username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="adminPassword">Password:</label>
+                        <input type="password" id="adminPassword" placeholder="Enter admin password" required>
+                    </div>
+                    <button type="submit" class="btn">Login as Admin</button>
+                </form>
+                <p class="admin-hint">Demo: Username: <strong>admin</strong> | Password: <strong>admin123</strong></p>
+            </div>
+
+            <div id="adminPanel" class="admin-panel" style="display: none;">
+                <div class="panel-header admin-panel-header">
+                    <h2>Admin Dashboard</h2>
+                    <button class="btn btn-logout" onclick="logoutAdmin()">Logout</button>
+                </div>
+                <div class="panel-content">
+                    <h3>Maintenance Requests</h3>
+                    <div id="requestsContainer" class="requests-container">
+                        <p>No maintenance requests yet.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Paul Magaigwa Nyakonge. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
